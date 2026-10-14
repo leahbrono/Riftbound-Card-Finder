@@ -1,0 +1,232 @@
+
+html, body {
+  min-height: 100vh;
+  width: 100%;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #05101f 0%, #0d233a 50%, #005f5f 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 2.5rem 0 1.5rem 0;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.header-subtitle {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9c8d62;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin: 0 0 0.8rem 0;
+  font-family: 'Merriweather', serif;
+}
+
+header p {
+  color: #a0aec0;
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.gold-divider {
+  width: 100%;
+  height: 0.5px;
+  background: #9c8d62;
+  margin: 0.5rem auto 2rem auto;
+}
+
+/* Removes default form margin */
+#searchForm {
+  max-width: 780px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Unified Single-Line Search Container Bar */
+.unified-search-bar {
+  display: flex;
+  align-items: center;
+  background: rgba(10, 25, 45, 0.7);
+  border: 1px solid #9c8d62;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* Search input takes up available space */
+#searchText {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  outline: none;
+  font-family: inherit;
+}
+
+#searchText::placeholder {
+  color: #a0aec0;
+}
+
+/* Sort By dropdown styled to match the gold subheading style */
+#raritySort {
+  width: 160px;
+  padding: 0.9rem 0.8rem;
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(156, 141, 98, 0.4);
+  color: #9c8d62;
+  font-family: inherit;
+  outline: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+#raritySort option {
+  background: #05101f;
+  color: #ffffff;
+  text-transform: none; /* Keeps the dropdown options readable */
+}
+
+/* Gold Search Icon Button on the far right */
+.search-icon-btn {
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(156, 141, 98, 0.4);
+  color: #9c8d62;
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.search-icon-btn:hover {
+  background: rgba(156, 141, 98, 0.15);
+  color: #e5c158;
+}
+
+/* Card Results Grid Layout */
+#content {  
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+  padding: 0 1rem 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: start;
+}
+
+.result {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;  
+  width: 100%;
+  max-width: 200px;
+  justify-content: flex-start; 
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.result:hover {
+  transform: translateY(-6px);
+}
+
+.card-image-container {
+  position: relative;
+  width: 100%;
+}
+
+.result img {
+  border-radius: 0.8rem;
+  width: 100%;
+  display: block;
+  box-shadow: 0 4px 9px rgba(0,0,0,0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.result:hover img {
+  box-shadow: 0 8px 24px rgba(190, 166, 121, 0.5);
+}
+
+.card-tag {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 0.55rem;
+  padding: 3px 7px;
+  border-radius: 7px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.alt-tag {
+  background-color: #1e1e2c;
+  color: rgb(196, 188, 154);
+}
+
+.sig-tag {
+  background-color: #1e1e2c;
+  color: rgb(196, 188, 154);
+}
+
+.alt-tag + .sig-tag {
+  top: 24px;
+}
+
+.name {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: #f0f0f0;
+}
+
+footer {
+  padding: 2rem;
+  font-family: 'TwentiethCenturyLightItalic';
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#content {
+  display: grid;
+  /* Keep your existing grid-template-columns here */
+  width: 100%;
+  min-height: 50vh; /* Ensures the container itself has vertical height */
+}
+
+/* Force the loading state to take up the full area and center its content */
+.loading-state {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 1.2rem;
+  z-index: 1000;
+  text-align: center;
+}

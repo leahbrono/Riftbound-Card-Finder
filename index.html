@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Riftbound Card Finder</title> 
+    
+    <link href="https://cdn.fonts.net/kit/7b6b1e00-8b68-11ec-9ce3-0220834439f4/7b6b1e00-8b68-11ec-9ce3-0220834439f4.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+    
+    <!-- Use type="module" so we can import and export functions cleanly -->
+    <script type="module" defer src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-subtitle">TCG Card Finder</div>
+      <h1>Riftbound Card Gallery</h1>
+      <p>Browse different Riftbound card. Search by name, sort by rarity, and open any card to see its details.</p>
+    </header>
+
+    <div class="gold-divider"></div>
+
+    <form id="searchForm">
+      <div class="unified-search-bar">
+        <input type="text" id="searchText" placeholder="Search card name (e.g. Vi or Jinx)...">
+        
+        <select id="raritySort">
+          <option value="">Sort By</option>
+          <option value="high-to-low">Rarity: High to Low</option>
+          <option value="low-to-high">Rarity: Low to High</option>
+        </select>
+
+        <button type="submit" class="search-icon-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+    </form>
+
+    <div id="content"></div>
+
+    <!-- Gemini helped me iterate this from the popover template from week 4 -->
+    <div id="cardModal" popover class="modal-overlay">
+      <div class="modal-content">
+        <!-- Native popovertarget closes the modal automatically without manual JS event listeners -->
+        <button class="modal-close" popovertarget="cardModal" popovertargetaction="hide">&times;</button>
+        <div class="modal-image-pane">
+          <img id="modalImg" src="" alt="Card Preview">
+        </div>
+        <div class="modal-details-pane">
+          <h2 id="modalName" class="modal-title"></h2>
+          <div id="modalSetInfo" class="modal-set-info"></div>
+          <div id="modalBadges" class="modal-badges"></div>
+          <div id="modalStats" class="modal-stats"></div>
+          <div id="modalTextBox" class="modal-text-box"></div>
+          <div id="modalTags" class="modal-tags"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <i>Created by Leah Bronowicki :)</a>  Riftbound TCG data via <a href="https://api.riftcodex.com/cards">Riftcodex API</a></i>
+    </footer>
+  </body>
+</html>
